@@ -12,7 +12,7 @@
 #root{
   /* border: 2px solid orange; */
   overflow-x: hidden;
-  padding: 50px 100px;
+  padding: 50px 25px;
   display: block;
   margin-top: 50px;
 }
@@ -28,13 +28,13 @@
   /* border: 2px solid violet; */
   justify-content: space-between;
   position: fixed;
-  top: 0;
+  top: 5px;
   left: 0;
   
 }
 .nav-ele{
   /* border: 2px solid blue; */
-  padding: 10px 20px;
+  padding: 10px 15px;
 }
 .searchbar{
   flex-grow: 1;
@@ -42,26 +42,18 @@
   border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  margin: 5px 0px;
+  /* margin: 5px 0px; */
 }
 .search{
-  /* background-color: rgb(52, 52, 52); */
+  background-color: rgb(194, 152, 38);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin: 5px 0px;
+  border: 2px solid rgb(194, 152, 38);
+  /* margin: 5px 0px; */
 }
 .search:hover{
   cursor: pointer;
-  /* border: 2px solid white; */
-}
-
-
-
-
-
-/**********H1**********/
-h1{
-  /* margin-top: 100px; */
+  border: 2px solid white;
 }
 
 
@@ -76,7 +68,7 @@ h1{
   width: 200px;
   height: 370px;
   /* border: 2px solid red; */
-  background-color: rgb(37, 34, 34);
+  background-color: rgba(28, 28, 28, 0.753);
   text-align: left;
   flex-shrink: 0;
   margin-right: 20px;
@@ -120,6 +112,8 @@ h1{
   overflow-x: auto;
   /* border: 2px solid green; */
 }
+
+
 
 
 

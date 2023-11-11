@@ -1,6 +1,5 @@
-import Search from "./Search";
-
 const Home = () =>{
+
     // const comedy = [
     //     {
     //       Title: "Star Wars: Episode IV - A New Hope",
@@ -10,13 +9,11 @@ const Home = () =>{
     //       Poster: "https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg"
     //     },
     // ];
+    
     return (
         <div className="home">
-            {/* <Collection title="Comedy" movies={comedy}/> */}
-            <Search text="Action"/>
-            <Search text="Comedy"/>
-            <Search text="Romance"/>
-            <Search text="Horror"/>
+            <h1>Welcome Back !!!</h1>
+            <h2>Search for movies..</h2>
         </div>
     );
 }

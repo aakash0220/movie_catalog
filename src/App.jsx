@@ -9,7 +9,7 @@ function App() {
   return(
     <div>
       <Navbar setText={setText}/>
-      {text === ""? <Home/> : <Search text={text} search={true}/>}
+      {text === ""? <Home/> : <Search text={text}/>}
     </div>
   );
 }
