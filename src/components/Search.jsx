@@ -9,9 +9,6 @@ const Search = ({text}) => {
     let display;
     
     useEffect(()=>{
-      setError("");
-      setFound(false);
-      setBuffer(true);
       axios.get(`https://www.omdbapi.com/?apikey=df5bc49f&s=${text}`)
            .then((res)=>{
             console.log(res);
@@ -30,6 +27,11 @@ const Search = ({text}) => {
             setError(err.message);
             setBuffer(false);
            })
+      return ()=>{
+        setError("");
+        setFound(false);
+        setBuffer(true);
+      }
     },[text]);
 
     if (buffer){
