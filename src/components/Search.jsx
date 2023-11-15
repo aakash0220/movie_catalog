@@ -1,7 +1,17 @@
 import Collection from "./Collection";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-const Search = ({text}) => {
+import UserDashboard from "./UserDashboard";
+const Search = ({searchText, isLoggedIn, userName, userID, favMovie, setFavMovie}) => {
+  if (searchText === ""){
+    return (
+      <>
+      {isLoggedIn?<UserDashboard userName={userName} userID={userID} favMovie={favMovie} setFavMovie={setFavMovie}/>:""}
+      <br></br>
+      <h2>Nothing to search..</h2>
+      </>
+    );
+  }
     const [movies, setMovies] = useState([{}]);
     const [buffer, setBuffer] = useState(true);
     const [found, setFound] = useState(false);
@@ -9,7 +19,7 @@ const Search = ({text}) => {
     let display;
     
     useEffect(()=>{
-      axios.get(`https://www.omdbapi.com/?apikey=df5bc49f&s=${text}`)
+      axios.get(`https://www.omdbapi.com/?apikey=df5bc49f&s=${searchText}`)
            .then((res)=>{
             console.log(res);
             if (res.data.Response === 'True'){
@@ -31,8 +41,9 @@ const Search = ({text}) => {
         setError("");
         setFound(false);
         setBuffer(true);
+        // setSearchText("");
       }
-    },[text]);
+    },[searchText]);
 
     if (buffer){
       display = <h2>Please wait..</h2>;
@@ -46,8 +57,8 @@ const Search = ({text}) => {
         }
         else {
           display = <div>
-            <h2>Search results for "{text}"..</h2>
-            <Collection movies={movies}/>
+            <h2>Search results for "{searchText}"..</h2>
+            <Collection movies={movies} setFavMovie={setFavMovie}/>
           </div>
         }
       }
@@ -55,6 +66,8 @@ const Search = ({text}) => {
 
     return (
         <div>
+            {isLoggedIn?<UserDashboard userName={userName} userID={userID} favMovie={favMovie} setFavMovie={setFavMovie}/>:""}
+            <br></br>
             {display}
         </div>
     );
