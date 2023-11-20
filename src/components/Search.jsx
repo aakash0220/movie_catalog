@@ -2,11 +2,11 @@ import Collection from "./Collection";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import UserDashboard from "./UserDashboard";
-const Search = ({searchText, isLoggedIn, userName, userID, favMovie, setFavMovie}) => {
+const Search = ({searchText, isLoggedIn, userName, userID, favMovie, setFavMovie, setDMovieID}) => {
   if (searchText === ""){
     return (
       <>
-      {isLoggedIn?<UserDashboard userName={userName} userID={userID} favMovie={favMovie} setFavMovie={setFavMovie}/>:""}
+      {isLoggedIn?<UserDashboard userName={userName} userID={userID} favMovie={favMovie} setFavMovie={setFavMovie} isUser={true} setDMovie={setDMovieID}/> :""}
       <br></br>
       <h2>Nothing to search..</h2>
       </>
@@ -56,17 +56,25 @@ const Search = ({searchText, isLoggedIn, userName, userID, favMovie, setFavMovie
           display = <h2>No result found..</h2>
         }
         else {
-          display = <div>
+          if (isLoggedIn){
+            display = <div>
             <h2>Search results for "{searchText}"..</h2>
-            <Collection movies={movies} setFavMovie={setFavMovie}/>
+            <Collection movies={movies} setFavMovie={setFavMovie} isUser={true} setDMovieID={setDMovieID}/>
+            </div>
+          }
+          else {
+            display = <div>
+            <h2>Search results for "{searchText}"..</h2>
+            <Collection movies={movies} setFavMovie={setFavMovie} isUser={false} setDMovieID={setDMovieID}/>
           </div>
+          }
         }
       }
     }
 
     return (
         <div>
-            {isLoggedIn?<UserDashboard userName={userName} userID={userID} favMovie={favMovie} setFavMovie={setFavMovie}/>:""}
+            {isLoggedIn?<UserDashboard userName={userName} userID={userID} favMovie={favMovie} setFavMovie={setFavMovie} isUser={true} setDMovie={setDMovieID}/>:""}
             <br></br>
             {display}
         </div>

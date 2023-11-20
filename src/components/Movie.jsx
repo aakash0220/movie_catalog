@@ -1,16 +1,33 @@
-const Movie = ({movie, setFavMovie, setRemove, isFavCollection}) => {
+import { Link } from "react-router-dom";
+
+const Movie = ({movie, setFavMovie, setRemove, isFavCollection, isUser, setDMovie}) => {
     const handleAddClick = () =>{
         setFavMovie(movie);
     }
     const handleRemoveClick = () => {
         setRemove(movie.imdbID);
     }
+    let display;
+    if (isUser){
+        if (isFavCollection){
+            display = <button onClick={handleRemoveClick} className="add">Remove from favourites</button>
+        }
+        else {
+            display = <button onClick={handleAddClick} className="add">Add to favourite</button>
+        }
+    }
+    else {
+        display = "";
+    }
+    const handleDetailClick = () => {
+        setDMovie(movie.imdbID);
+    }
     return (
         <div className="movie">
-            <img className="thumbnail"src={movie.Poster} alt="Movie Poster"></img>
+            <Link to='/movie_catalog/details'><img className="thumbnail"src={movie.Poster} alt="Movie Poster" onClick={handleDetailClick}></img></Link>
             <div className="rating">{movie.Year}</div>
-            <div className="title">{movie.Title}</div>
-            {!isFavCollection ? <button onClick={handleAddClick} className="add">Add to favourite</button>: <button onClick={handleRemoveClick} className="add">Remove from favourites</button>}
+            <Link to='/movie_catalog/details'><div className="title" onClick={handleDetailClick}>{movie.Title}</div></Link>
+            {display}
         </div>
     );
 }

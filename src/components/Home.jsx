@@ -1,6 +1,6 @@
 import UserDashboard from "./UserDashboard";
 
-const Home = ({isLoggedIn, userName, userID, favMovie, setFavMovie}) =>{
+const Home = ({isLoggedIn, userName, userID, favMovie, setFavMovie, setDMovieID}) =>{
 
     // const comedy = [
     //     {
@@ -14,7 +14,7 @@ const Home = ({isLoggedIn, userName, userID, favMovie, setFavMovie}) =>{
     
     return (
         <div>
-            {isLoggedIn ? <UserDashboard userName={userName} userID={userID} favMovie={favMovie} setFavMovie={setFavMovie}/>: <h2>Search for your favourite movie..</h2>}
+            {isLoggedIn ? <UserDashboard userName={userName} userID={userID} favMovie={favMovie} setFavMovie={setFavMovie} setDMovieID={setDMovieID}/>: <h2>Search for your favourite movie..</h2>}
         </div>
     );
 }

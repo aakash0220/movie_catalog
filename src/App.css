@@ -27,6 +27,7 @@
   display: flex;
   /* border: 2px solid violet; */
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 5px;
   left: 0px;
@@ -39,21 +40,25 @@
 .searchbar{
   flex-grow: 1;
   background-color: rgb(65, 61, 61);
-  border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   /* margin: 5px 0px; */
 }
 .search{
-  background-color: rgb(194, 152, 38);
+  background-color: rgb(214, 162, 50);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  border: 2px solid rgb(194, 152, 38);
+  border: 2px solid rgb(214, 162, 50);
   /* margin: 5px 0px; */
 }
 .search:hover{
   cursor: pointer;
   border: 2px solid white;
+}
+.navbar input{
+  min-width: 0px;
+  height: 48px;
+  /* border: none; */
 }
 
 
@@ -117,11 +122,71 @@
 
 
 
-input{
-  min-width: 0px;
+/**********SIGNIN**********/
+.signin{
+  /* border: 2px solid red; */
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 50px 50px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.247);
+}
+.signin input{
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.signin button{
+  min-width: 300px;
+}
+.form-ul{
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.form-li{
+  display: flex;
+  justify-content: space-between;
 }
 
 
 
+
+
+/***********DETAILS**********/
+.details{
+  margin: auto;
+  max-width: 1000px;
+  background-color: rgb(69, 65, 65);
+  padding: 20px 50px;
+  border-radius: 20px;
+  /* border: 2px solid red; */
+}
+.hero-detail{
+  display: flex;
+  gap : 50px;
+}
+.top-detail{
+  display: flex;
+  gap : 30px;
+  flex-wrap: wrap;
+}
+.plot-title{
+  color: rgb(255, 217, 0);
+}
+.top-title{
+  color: rgb(0, 136, 255);
+}
+
+
+
+
+/**********LOGIN*********/
+/*****same-as-signin*****/
 
 

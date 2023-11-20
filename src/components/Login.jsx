@@ -34,12 +34,14 @@ const Login = ({setIsLoggedIn, setUserName, setUserID}) => {
     }
     
     return (
-        <div className="login">
+        <div className="signin">
             {!verified? <h2>Invalid UserID or Password</h2>:""}
             <br></br>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="userid">UserID</label><input id="userid" type="text" onChange={handleUserIDChange}></input><br></br>
-                <label htmlFor="password">Password</label><input id="password" type="password" onChange={handlePasswordChange}></input><br></br><br></br>
+                <ul className="form-ul">
+                    <li className="form-li"><label htmlFor="userid">UserID</label><input id="userid" type="text" onChange={handleUserIDChange} required></input></li>
+                    <li className="form-li"><label htmlFor="password">Password</label><input id="password" type="password" onChange={handlePasswordChange} required></input></li>
+                </ul>
                 <button type="submit">Login</button>
             </form>
         </div>
